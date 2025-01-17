@@ -115,7 +115,7 @@ def story_and_photos_generate(input_text, mode="inspiration"):
 
             url = "https://stablediffusionapi.com/api/v3/text2img"
             payload = json.dumps({
-                "key": "2R8C4CzLOEWsohnHBwGOo9dcP1yhPQPWV9vhJPa6HBJNydmfHrFsZo4Ltb64",  # 用你的 API 密钥替换
+                "key": "tmn5XZHOqd57tQwDnAIq7kH9vWroAgp2zsK7XSN5DKYS1uOO0YefWBWl19Sy",  # 用你的 API 密钥替换
                 "prompt": prompt,
                 "negative_prompt": None,
                 "width": str(width),
