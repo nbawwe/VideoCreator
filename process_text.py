@@ -13,9 +13,10 @@ def sanitize_filename(filename):
     return ''.join(c if c in allowed_chars or re.match(r'[\u4e00-\u9fa5]', c) else '_' for c in filename)
 
 
-def story_and_photos_generate(input_text):
+def story_and_photos_generate(input_text, mode="inspiration"):
+    if mode == "inspiration":
     # 文案生成请求模板
-    system_instruction_for_article = '''以下用中文回答300字左右。\\
+        system_instruction_for_article = '''以下用中文回答300字左右。\\
                     直接输出一篇自媒体视频文案，\\
                     不要说浅显的道理\\
                     在开头直接给出这篇文案的核心观点或者指引，吸引读者，而在后续慢慢展开，解释清楚观点或者指引的科学内涵和内容。\\
@@ -28,7 +29,8 @@ def story_and_photos_generate(input_text):
                     请把一个论点叙述完整，让人们可以彻底明白和理解\\
                     不用说空话废话以及浅显的道理，特别是结尾部分。要言之有物。\\
                     '''
-
+    if mode == "script":
+        system_instruction_for_article = input_text
     client = OpenAI(api_key="sk-JQebDv7MoGLmlepCC7B8EcB1806d4094Bb00C57d0354AdBb", base_url="https://api.ai365vip.com/v1")
 
     # 设置生成n个故事

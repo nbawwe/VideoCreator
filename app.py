@@ -12,7 +12,7 @@ def generate_from_inspiration(text):
 
 def generate_from_script(script):
 
-    folder_path = story_and_photos_generate(script)
+    folder_path = story_and_photos_generate(script, mode="script")
 
     return folder_path
 
@@ -58,7 +58,7 @@ def gradio_app():
                 )
 
                 text_input = gr.Textbox(
-                    label="输入文字/文稿", placeholder="请输入内容", elem_id="custom-textbox", lines=20, scale=2, container=True, show_label=True)
+                    label="输入灵感/文稿", placeholder="请输入内容", elem_id="custom-textbox", lines=20, scale=2, container=True, show_label=True)
                 image_input = gr.Image(label="上传图片", visible=False)
                 generate_btn = gr.Button("生成视频")
 
